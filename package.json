@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "https://github.com/rails/webpacker.git",
+    "svelte": "^3.9.1"
+  },
+  "devDependencies": {
+    "svelte-loader": "^2.13.6",
+    "webpack-dev-server": "^3.8.0"
+  }
+}

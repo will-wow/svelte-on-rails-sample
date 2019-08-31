@@ -19,6 +19,8 @@ gem "sassc-rails"
 gem "simple_form"
 gem "slim-rails"
 gem "uglifier"
+# Svelte is only on master
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 
 # Tools
 gem "awesome_print"
