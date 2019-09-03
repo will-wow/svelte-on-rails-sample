@@ -1,12 +1,11 @@
 <script>
-  import { store } from "./store"
+  import { store, initialize } from "./store"
 
   export let counter
+  initialize(counter)
 
-  $: doubled = counter * 2
-  $: bigNumber = counter > 10
-
-  $: store.set(counter)
+  $: doubled = $store * 2
+  $: bigNumber = $store > 10
 </script>
 
 <style>
@@ -16,10 +15,10 @@
 </style>
 
 <div class="jumbotron">
-  <h1>Foo</h1>
-  <div class:bigNumber>Counter: {counter}</div>
+  <h1>Counter</h1>
+  <div class:bigNumber>Counter: {$store}</div>
   <div>Doubled: {doubled}</div>
   <div>
-    <button class="btn-xs" on:click={() => counter++}>Add 1</button>
+    <button class="btn-xs" on:click={() => $store++}>Add 1</button>
   </div>
 </div>

@@ -22,6 +22,7 @@ gem "uglifier"
 # Svelte is only on master
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem 'webpacker-svelte', path: "../webpacker-svelte"
+gem 'turbolinks', '~> 5'
 
 # Tools
 gem "awesome_print"
