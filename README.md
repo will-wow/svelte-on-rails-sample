@@ -12,9 +12,9 @@ Generated with [Raygun](https://github.com/carbonfive/raygun).
 
 To run the specs or fire up the server, be sure you have these installed (and running):
 
-* Ruby 2.6 (see [.ruby-version](.ruby-version)).
-* PostgreSQL 11.2+ (`brew install postgresql`).
-* Heroku CLI (`brew install heroku`).
+- Ruby 2.6 (see [.ruby-version](.ruby-version)).
+- PostgreSQL 11.2+ (`brew install postgresql`).
+- Heroku CLI (`brew install heroku`).
 
 ### First Time Setup
 
@@ -50,14 +50,14 @@ The easiest way to run the app is using `heroku local`. This starts all the proc
 
 ### Git
 
-* Branch `development` is auto-deployed to acceptance.
-* Branch `master` is auto-deployed to production.
-* Create feature branches off of `development` using the naming convention
+- Branch `development` is auto-deployed to acceptance.
+- Branch `master` is auto-deployed to production.
+- Create feature branches off of `development` using the naming convention
   `(features|chores|bugs)/a-brief-description-######`, where ###### is the tracker id.
-* Rebase your feature branch before merging into `development` to produce clean/compact merge bubbles.
-* Always retain merge commits when merging into `development` (e.g. `git merge --no-ff branchname`).
-* Use `git merge development` (fast-forward, no merge commit) from `master`.
-* Craft atomic commits that make sense on their own and can be easily cherry-picked or reverted if necessary.
+- Rebase your feature branch before merging into `development` to produce clean/compact merge bubbles.
+- Always retain merge commits when merging into `development` (e.g. `git merge --no-ff branchname`).
+- Use `git merge development` (fast-forward, no merge commit) from `master`.
+- Craft atomic commits that make sense on their own and can be easily cherry-picked or reverted if necessary.
 
 ### Code Style
 
@@ -89,7 +89,7 @@ Learn more at [mailcatcher.me](http://mailcatcher.me/). And please don't add mai
 
 ### Using ChromeDriver
 
-The ChromeDriver version used in this project is maintained by the [webdrivers](https://github.com/titusfortner/webdrivers) gem.  This is means that the
+The ChromeDriver version used in this project is maintained by the [webdrivers](https://github.com/titusfortner/webdrivers) gem. This is means that the
 feature specs are not running against the ChromeDriver installed previously on the machine, such as by Homebrew.
 
 ### Headed vs headless Chrome
@@ -119,25 +119,25 @@ Several common features and operational parameters can be set using environment 
 
 **Required**
 
-* `SECRET_KEY_BASE` - Secret key base for verifying signed cookies. Should be 30+ random characters and secret!
+- `SECRET_KEY_BASE` - Secret key base for verifying signed cookies. Should be 30+ random characters and secret!
 
 **Optional**
 
-* `HOSTNAME` - Canonical hostname for this application. Other incoming requests will be redirected to this hostname.
-* `FORCE_SSL` - Require all requests to come over a secure connection (default: false).
-* `BASIC_AUTH_PASSWORD` - Enable basic auth with this password.
-* `BASIC_AUTH_USER` - Set a basic auth username (not required, password enables basic auth).
-* `RACK_TIMEOUT_SERVICE_TIMEOUT` - Terminate requests that take longer than this time (default: 15s).
-* `ASSET_HOST` - Asset host for static assets (e.g. CDN) (default: none).
-* `PORT` - Port to listen on (default: 3000).
-* `WEB_CONCURRENCY` - Number of puma workers to spawn (default: 1).
-* `RAILS_MAX_THREADS` - Threads per worker (default: 5).
-* `RAILS_MIN_THREADS` - Threads per worker (default: 5).
-* `DB_POOL` - Number of DB connections per pool (i.e. per worker) (default: RAILS_MAX_THREADS or 5).
-* `RAILS_LOG_TO_STDOUT` - Log to standard out, good for Heroku (default: false).
-* `RAILS_SERVE_STATIC_FILES` - Serve static assets, good for Heroku (default: false).
+- `HOSTNAME` - Canonical hostname for this application. Other incoming requests will be redirected to this hostname.
+- `FORCE_SSL` - Require all requests to come over a secure connection (default: false).
+- `BASIC_AUTH_PASSWORD` - Enable basic auth with this password.
+- `BASIC_AUTH_USER` - Set a basic auth username (not required, password enables basic auth).
+- `RACK_TIMEOUT_SERVICE_TIMEOUT` - Terminate requests that take longer than this time (default: 15s).
+- `ASSET_HOST` - Asset host for static assets (e.g. CDN) (default: none).
+- `PORT` - Port to listen on (default: 3000).
+- `WEB_CONCURRENCY` - Number of puma workers to spawn (default: 1).
+- `RAILS_MAX_THREADS` - Threads per worker (default: 5).
+- `RAILS_MIN_THREADS` - Threads per worker (default: 5).
+- `DB_POOL` - Number of DB connections per pool (i.e. per worker) (default: RAILS_MAX_THREADS or 5).
+- `RAILS_LOG_TO_STDOUT` - Log to standard out, good for Heroku (default: false).
+- `RAILS_SERVE_STATIC_FILES` - Serve static assets, good for Heroku (default: false).
 
 ### Third Party Services
 
-* Heroku for hosting.
-* CircleCI for continuous integration.
+- Heroku for hosting.
+- CircleCI for continuous integration.

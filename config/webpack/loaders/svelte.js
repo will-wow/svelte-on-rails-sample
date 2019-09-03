@@ -4,9 +4,9 @@ module.exports = {
     {
       loader: "svelte-loader",
       options: {
-        hotReload: true,
+        hotReload: true
         // customElement: true
       }
     }
   ]
-};
+}

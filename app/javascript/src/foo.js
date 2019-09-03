@@ -1,3 +1,3 @@
-import Counter from "./components/Counter.svelte";
+import Counter from "./components/Counter.svelte"
 
-console.log({ Counter });
+console.log({ Counter })

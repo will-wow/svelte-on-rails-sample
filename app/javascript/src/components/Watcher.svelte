@@ -1,9 +1,9 @@
 <script>
-  import { store } from "./store";
+  import { store } from "./store"
 
   $: small = true
-  $: medium = $store > 10;
-  $: large = $store > 20;
+  $: medium = $store > 10
+  $: large = $store > 20
 </script>
 
 <style>

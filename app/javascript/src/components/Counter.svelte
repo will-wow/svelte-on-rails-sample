@@ -1,10 +1,10 @@
 <script>
-  import { store } from "./store";
+  import { store } from "./store"
 
-  export let counter;
+  export let counter
 
-  $: doubled = counter * 2;
-  $: bigNumber = counter > 10;
+  $: doubled = counter * 2
+  $: bigNumber = counter > 10
 
   $: store.set(counter)
 </script>
