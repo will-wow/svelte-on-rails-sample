@@ -16,13 +16,4 @@ module ApplicationHelper
     }.with_indifferent_access.fetch(alert_type, alert_type.to_s)
     "alert-#{alert_type}"
   end
-
-  def svelte_component(component_name, props = {})
-    content_tag(
-      :div, nil, { data: {
-        "svelte-component" => component_name,
-        "svelte-props" => props.to_json,
-      } }
-    )
-  end
 end

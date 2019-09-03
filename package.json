@@ -3,6 +3,7 @@
   "private": false,
   "dependencies": {
     "@rails/webpacker": "https://github.com/rails/webpacker.git",
+    "webpacker-svelte": "file:../webpacker-svelte/javascript/webpacker_svelte-npm-module/dist",
     "svelte": "^3.9.1"
   },
   "devDependencies": {
