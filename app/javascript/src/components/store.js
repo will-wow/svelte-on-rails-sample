@@ -1,7 +1,5 @@
 import { writable } from "svelte/store"
 
-console.log("store setup")
-
 const DEFAULT_COUNT = 0
 
 export const store = writable(DEFAULT_COUNT)
