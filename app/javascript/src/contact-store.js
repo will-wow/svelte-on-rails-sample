@@ -1,7 +1,9 @@
-import { writable } from "svelte/store"
+import { writable, derived } from "svelte/store"
 import axios from "axios"
 
 export const contactStore = writable([])
+
+export const contactCount = derived(contactStore, contacts => contacts.length)
 
 export const createContact = async contact => {
   const { data: createdContact } = await axios.post("/api/contacts", {
@@ -15,10 +17,7 @@ export const saveContact = async contact => {
 
   await axios.put(`/api/contacts/${contact.id}`, { contact })
 
-  // Timeout for show
-  setTimeout(() => {
-    updateContact(contact.id, { saving: false })
-  }, 500)
+  updateContact(contact.id, { saving: false })
 }
 
 export const deleteContact = contact => {

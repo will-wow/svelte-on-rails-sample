@@ -7,7 +7,18 @@
   export let onDelete
 
   const inputClass = "form-control"
-  $: saving = contact.saving
+
+  let saving
+
+  const updateSaving = isSaving => {
+    if (isSaving) {
+      saving = true
+    } else if (!isSaving) {
+      setTimeout(() => (saving = false), 500)
+    }
+  }
+
+  $: updateSaving(contact.saving)
 </script>
 
 <style>
