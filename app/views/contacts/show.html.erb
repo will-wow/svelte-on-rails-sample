@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1>Contact</h1>
+</div>
+
+<dl>
+  <dt>Name</dt> <dd><%= @contact.name %></dd>
+  <dt>Email</dt><dd><%= @contact.email %></dd>
+  <dt>Twitter</dt><dd><%= @contact.twitter %></dd>
+  <dt>Phone</dt><dd><%= @contact.phone %></dd>
+</dl>
+
+<%= link_to "Edit", edit_contact_path(@contact), class: "btn btn-primary" %>
+<%= link_to "Back", contacts_path, class: "btn btn-secondary" %>
+
+ <%= link_to "Destroy", contact_path(@contact),
+      method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
