@@ -6,10 +6,13 @@
   export let onDelete
 
   const inputClass = "form-control"
-
+  $: saving = contact.saving
 </script>
 
 <style>
+  tr {
+    transition: background 0.5s linear;
+  }
   td {
     vertical-align: middle;
   }
@@ -17,9 +20,13 @@
   .actions {
     white-space: nowrap;
   }
+
+  .saving {
+    background: var(--yellow) !important;
+  }
 </style>
 
-<tr>
+<tr class:saving>
   <td>
     {#if contact.id}
       <a href="/contacts/{contact.id}">{contact.id}</a>
