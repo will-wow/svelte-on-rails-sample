@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "https://github.com/rails/webpacker.git",
     "svelte": "^3.9.1",
-    "webpacker-svelte": "file:../webpacker-svelte/javascript/webpacker_svelte-npm-module/dist"
+    "webpacker-svelte": "^0.0.0"
   },
   "devDependencies": {
     "eslint": "^6.3.0",

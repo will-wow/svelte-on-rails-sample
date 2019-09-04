@@ -1,6 +1,7 @@
 # Svelte On Rails
 
-...
+A sample project that demonstrates using [webpacker-svelte]() to add Svelte components to a Rails app
+for a smaller, simpler alternative to React.
 
 Generated with [Raygun](https://github.com/carbonfive/raygun).
 
