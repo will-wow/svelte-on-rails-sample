@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[show edit update destroy]
+  before_action :set_contact_count, only: %i[index show new edit]
 
   def index
     @contacts = Contact.all.order(:created_at)
@@ -44,6 +45,10 @@ class ContactsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_contact
     @contact = Contact.find(params[:id])
+  end
+
+  def set_contact_count
+    @contact_count = Contact.all.count
   end
 
   # Only allow a trusted parameter "white list" through.

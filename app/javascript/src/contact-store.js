@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const contactStore = writable([])
 
-export const contactCount = derived(contactStore, contacts => contacts.length)
+export const contactCountStore = derived(contactStore, contacts => contacts.length)
 
 export const createContact = async contact => {
   const { data: createdContact } = await axios.post("/api/contacts", {
