@@ -1,0 +1,13 @@
+= simple_form_for(contact) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, autofocus: true
+    = f.input :email
+    = f.input :twitter
+    = f.input :phone
+
+  => button_tag type: "submit", class: "btn btn-primary" do
+    = "#{btn_action_prefix} Contact"
+
+  = link_to "Back", :back, class: "btn btn-secondary"

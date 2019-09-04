@@ -1,0 +1,21 @@
+.page-header
+  h1 Contact
+
+dl
+  dt Name
+  dd= @contact.name
+  dt Email
+  dd= @contact.email
+  dt Twitter
+  dd= @contact.twitter
+  dt Phone
+  dd= @contact.phone
+
+/- if policy(contact).edit?
+=> link_to "Edit", edit_contact_path(@contact), class: "btn btn-primary"
+
+= link_to "Back", contacts_path, class: "btn btn-secondary"
+
+/- if policy(contact).destroy?
+=< link_to "Destroy", contact_path(@contact),
+          method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"

@@ -1,0 +1,32 @@
+div.page-header
+  h1 Contacts
+
+table.table.table-striped.table-hover
+  thead
+    tr
+      th ID
+      th Name
+      th Email
+      th Twitter
+      th Phone
+      th Actions
+
+  tbody
+    - @contacts.each do |contact|
+      tr
+        /td= link_to_if policy(contact).show?, contact.id, contact_path(contact)
+        td= link_to contact.id, contact_path(contact)
+        td= contact.name
+        td= contact.email
+        td= contact.twitter
+        td= contact.phone
+        td
+          /- if policy(contact).edit?
+          = link_to "Edit", edit_contact_path(contact), class: "btn btn-primary btn-xs"
+          '
+          /- if policy(contact).destroy?
+          = link_to "Destroy", contact_path(contact),
+                  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs"
+
+/- if policy(Contact).create?
+= link_to "New Contact", new_contact_path, class: "btn btn-primary"
