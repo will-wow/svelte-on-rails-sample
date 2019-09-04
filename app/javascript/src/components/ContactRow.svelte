@@ -1,5 +1,6 @@
 <script>
   import axios from "axios"
+  import { fade } from "svelte/transition"
 
   export let contact
   export let onSave
@@ -26,7 +27,7 @@
   }
 </style>
 
-<tr class:saving>
+<tr class:saving transition:fade>
   <td>
     {#if contact.id}
       <a href="/contacts/{contact.id}">{contact.id}</a>
