@@ -18,5 +18,7 @@ import WebpackerSvelte from "webpacker-svelte"
 
 import Counter from "../src/components/Counter.svelte"
 import Watcher from "../src/components/Watcher.svelte"
+import ContactList from "../src/components/ContactList.svelte"
+import NewContactButton from "../src/components/NewContactButton.svelte"
 
-WebpackerSvelte.setup({ Counter, Watcher })
+WebpackerSvelte.setup({ Counter, Watcher, ContactList, NewContactButton })
