@@ -17,11 +17,11 @@
   <tbody>
     <% @contacts.each do |contact| %>
     <tr>
-      <td><%= ::Temple::Utils.escape_html((link_to contact.id, contact_path(contact))) %></td>
-      <td><%= ::Temple::Utils.escape_html((contact.name)) %></td>
-      <td><%= ::Temple::Utils.escape_html((contact.email)) %></td>
-      <td><%= ::Temple::Utils.escape_html((contact.twitter)) %></td>
-      <td><%= ::Temple::Utils.escape_html((contact.phone)) %></td>
+      <td><%= link_to contact.id, contact_path(contact) %></td>
+      <td><%= contact.name %></td>
+      <td><%= contact.email %></td>
+      <td><%= contact.twitter %></td>
+      <td><%= contact.phone %></td>
       <td>
         <%= link_to "Edit", edit_contact_path(contact), class: "btn btn-primary btn-xs" %>
         <%= link_to "Destroy", contact_path(contact), 
