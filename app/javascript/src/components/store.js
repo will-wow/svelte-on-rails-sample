@@ -5,7 +5,7 @@ const DEFAULT_COUNT = 0
 export const store = writable(DEFAULT_COUNT)
 
 export const initialize = count => {
-  if (count === DEFAULT_COUNT) {
+  if (count !== DEFAULT_COUNT) {
     store.set(count)
   }
 }
