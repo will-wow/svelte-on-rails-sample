@@ -24,9 +24,5 @@ module.exports = {
       files: ["**/*.svelte"],
       processor: "svelte3/svelte3"
     }
-  ],
-  env: {
-    browser: true,
-    node: true
-  }
+  ]
 }
