@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root to: "pages#root"
-  get "/counter", to: "pages#counter"
-
+  root to: "contacts#index"
   resources :contacts
 
   namespace :api do
