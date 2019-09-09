@@ -10,7 +10,7 @@ Sometimes we find ourselves adding a few API routes and a bit of client-side jQu
 
 Then it happens. That moment where the dev teams says "oh no, should we have used React?" Maybe a user in an interview mentions, "why can't I edit this data right here, why do I have to go to another page to do it?" Or maybe the next big feature is wizard, with lots of state, conditional fields based on values from previous pages, a dynamic progress bar, validation that should warn you about missing data, but not stop you from progressing until you try to submit... the stuff they invented SPAs to deal with.
 
-That doesn't mean the team made a mistake going with Rails - an SPA adds drag to any project, and if you can get an MVP out faster without it, then you're in a great place. But still, it would be nice if there was something in between -- that had the size and simplicty of jQuery, with the more powerful declarative abstractions of React.
+That doesn't mean the team made a mistake going with Rails - an SPA adds drag to any project, and if you can get an MVP out faster without it, then you're in a great place. But still, it would be nice if there was something in between -- that had the size and simplicity of jQuery, with the more powerful declarative abstractions of React.
 
 ## Svelte to the Rescue
 
@@ -44,7 +44,7 @@ const CountDown = () => {
 }
 ```
 
-And here's the equivilant in svelte:
+And here's the equivalent in svelte:
 
 ```html
 <script>
@@ -65,9 +65,9 @@ And here's the equivilant in svelte:
 </div>
 ```
 
-That `$:` symbols is a "reactive declaration", and is the heart of Svelte's magic. It's like a let declearation, but whenever any variable referenenced in the expression -- `count` in this case -- is updated, the expression is re-run and `remaining`'s value is updated. So it declares a relationship - `remaining` is always `10 - count`. This might seem crazy, but it's conceptually the same as declaring a variable that you know will be updated in every React render loop.
+That `$:` symbols is a "reactive declaration", and is the heart of Svelte's magic. It's like a let declaration, but whenever any variable referenced in the expression -- `count` in this case -- is updated, the expression is re-run and `remaining`'s value is updated. So it declares a relationship - `remaining` is always `10 - count`. This might seem crazy, but it's conceptually the same as declaring a variable that you know will be updated in every React render loop.
 
-Reactive declaration means that you're able to do simple assignment in Svelte, but without the performance problems of the old AngularJS digest cycle. That's because those assignments get _compiled_ into something a lot like `setState`, except that only the reactive declarations that depend on a given value will be re-run when that value is chaged. Pretty rad! That means your Rails devs don't have to learn a whole new programming paradigm just to write a little component. They can assign like they would in Ruby, and everything just works.
+Reactive declaration means that you're able to do simple assignment in Svelte, but without the performance problems of the old AngularJS digest cycle. That's because those assignments get _compiled_ into something a lot like `setState`, except that only the reactive declarations that depend on a given value will be re-run when that value is changed. Pretty rad! That means your Rails devs don't have to learn a whole new programming paradigm just to write a little component. They can assign like they would in Ruby, and everything just works.
 
 If you want to see what gets compiled, Svelte has a nice online REPL that lets you code a component, run it, and see its compiled output. [Here's the `CountDown` component](https://svelte.dev/repl/5d2edc49838f479eb1a784be0cb01f43?version=3.10.0).
 
@@ -101,15 +101,15 @@ export const increment = () => count.update(n => n < 10 ? n + 1 : n);
 </div>
 ```
 
-For a large SPA, you'll want to introduce some structure to your data model or it'll turn into spegetti code, with stores being created and updated all over the place. Svelte actually works with RxJS [out of the box](https://twitter.com/sveltejs/status/1121762491917328384?lang=en), so I might use that for a large project. But if all you need is a few isolated groups of components, then a simple store is a great way to share state between them.
+For a large SPA, you'll want to introduce some structure to your data model or it'll turn into spaghetti code, with stores being created and updated all over the place. Svelte actually works with RxJS [out of the box](https://twitter.com/sveltejs/status/1121762491917328384?lang=en), so I might use that for a large project. But if all you need is a few isolated groups of components, then a simple store is a great way to share state between them.
 
 ## Rails Integration
 
-That simple case is what I want to focus on in this post. You've got a working server-rendered web app, and you want to add a little dynamic content to it. This example will focus on Rails, but if you're using another framework like Python's Django or Elixir's Phoenix then this all still applies. There's just a little glue code you'll have to add to your app, while I've got a library for integrating with Rails.
+That simple case is what I want to focus on in the rest of this post. You've got a working server-rendered web app, and you want to add a little dynamic content to it. This example will focus on Rails, but if you're using another framework like Python's Django or Elixir's Phoenix then this all still applies. There's just a little glue code you'll have to add to your app, while I've got a library for integrating with Rails.
 
 To have a concrete example to work through, let's imagine we're working on a Rails app with a Contacts List page. It has an `index.html.erb` file for showing all your contacts, an `edit.html.erb` file for editing one contact, and a `new.html.erb` file for creating a new one. You can generate that whole thing with a simple `rails g scaffold contacts ETC.` command.
 
-But of course, it can't last. Eventually someone is going to say, "I can see all my contacts on this one index page, I want to be able to add, edit, and delete them without going to a seperate page." And they're right! The `edit.html.erb` model works, but it can feel clunky in 2019. Coding up the logic to do CRUD operations on the rows in that index table, and keep a running count in the corner, is totally doable in jQuery. But this is a great case for a few components - a ContactList, a ContactRow, and a ContactCounter for that badge in the corner. Let's see how we could build those in Svelte.
+But of course, it can't last. Next on the backlog is a story, "As a user viewing my contacts, I want to make edits inline on the index page, so that I can make multiple changes without jumping back and forth to the edit page." Fair enough! The `edit.html.erb` model works, but it can feel clunky in 2019. Coding up the logic to do CRUD operations on the rows in that index table, and keep a running count in the corner, is totally doable in jQuery. But this is a great case for using a new few components - a `ContactList` and `ContactRow` for the editable contacts, and a `ContactCounter` for that badge in the corner. Let's see how we could build those in Svelte.
 
 First off, let's take the HTML for a row, which looks like this:
 
@@ -128,7 +128,7 @@ Happily the testing situation with Svelte is pretty good. [Svelte Testing Librar
 
 ---
 
-At the begining of these projects, there's a choice: server-rendered rails, or React?
+At the beginning of these projects, there's a choice: server-rendered rails, or React?
 
 Every framework solves the annoyances of a previous one, and introduces some of its own. When a jQuery project goes on for a while, the developers start to long for an organized, predictable, declarative framework. And when a React project goes on for a while, the developers start to wonder if life wasn't better when you could just `$('input[name="title"]').addClass('error')` and call it a day.
 
