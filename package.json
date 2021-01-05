@@ -3,7 +3,7 @@
   "private": false,
   "dependencies": {
     "@rails/webpacker": "https://github.com/rails/webpacker.git",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "svelte": "^3.11.0",
     "webpacker-svelte": "^0.0.0"
   },
